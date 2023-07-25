@@ -2,12 +2,12 @@
 
 namespace Application.Abstractions
 {
-    public interface IRepository
+    public interface IPostRepository
     {
-        Task<ICollection<Post>> GetPostsWithComments();
-        Task<Post> GetPostWithComment(int postId);
+        Task<ICollection<Post>> GetAllPost();
+        Task<Post> GetPostById(int postId);
         Task<Post> CreatePost(Post toCreate);
         Task<Post> UpdatePost(string updateContent, int postId);
-        Task<Post> DeletePost(int postId);
+        Task DeletePost(int postId);
     }
 }
