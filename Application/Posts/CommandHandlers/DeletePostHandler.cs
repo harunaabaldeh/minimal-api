@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Application.Posts.CommandHandlers
 {
-    public class DeletePostHandler : IRequestHandler<DeletePost>
+    public class DeletePostHandler : IRequestHandler<DeletePost, Unit>
     {
 
         private readonly IPostRepository _repository;
@@ -14,9 +14,12 @@ namespace Application.Posts.CommandHandlers
             _repository = repository;
 
         }
-        public async Task Handle(DeletePost request, CancellationToken cancellationToken)
+
+        public async Task<Unit> Handle(DeletePost request, CancellationToken cancellationToken)
         {
             await _repository.DeletePost(request.PostId);
+
+            return Unit.Value;
         }
     }
 }

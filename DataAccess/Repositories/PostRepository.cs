@@ -4,10 +4,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories
 {
-    public class PostRepositories : IPostRepository
+    public class PostRepository : IPostRepository
     {
         private readonly SocialDbContext _context;
-        public PostRepositories(SocialDbContext context)
+        public PostRepository(SocialDbContext context)
         {
             _context = context;
 
